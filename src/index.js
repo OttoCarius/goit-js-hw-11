@@ -21,7 +21,6 @@ import {
   letMsgAllImagesLoaded,
   letMsgTotalFindImages,
 } from './js/message';
-
 //Destructuring object
 const { formEl, imagesContainerEl } = refs();
 

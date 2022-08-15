@@ -11,7 +11,7 @@ export function letMsgNoImagesByQuery() {
 }
 
 export function letMsgAllImagesLoaded() {
-  return Notify.failure(
+  return Notify.info(
     "We're sorry, but you've reached the end of search results."
   );
 }

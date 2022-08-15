@@ -53,13 +53,21 @@ async function onFormSubmit(e) {
   try {
     await pixabayApiService.fetchImage();
     const { searchQuery, totalHits, hits } = pixabayApiService;
-    if (!searchQuery) {
-      return letMsgEnterYouQuery();
-    }
-    if (!totalHits) {
+    // if (!searchQuery) {
+    //   return letMsgEnterYouQuery();
+    // }
+    // if (!totalHits) {
+    //   return letMsgNoImagesByQuery();
+    // }
+    if (hits.length === 0) {
       return letMsgNoImagesByQuery();
+    } else if (totalHits <= 40) {
+      letMsgTotalFindImages(totalHits);
+      letMsgAllImagesLoaded();
+    } else {
+      letMsgTotalFindImages(totalHits);
     }
-    letMsgTotalFindImages(totalHits);
+    // letMsgTotalFindImages(totalHits);
     appendImagesContainerEl(hits, imagesContainerEl);
     lightboxRefresh();
     addListener();

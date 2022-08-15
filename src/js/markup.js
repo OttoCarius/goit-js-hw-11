@@ -10,7 +10,7 @@ function createPictureCard(hits) {
     comments,
     downloads,
   } = hits;
-  return /* html */ `<li class="photo__card card-set-item">
+  return `<li class="photo__card card-set-item">
     <a class="gallery__item" href="${largeImageURL}">
         <img class="gallery__image" src="${webformatURL}" alt="${tags}" loading="lazy" width=${webformatWidth} height=${webformatHeight}>
     <ul class="info card-set">

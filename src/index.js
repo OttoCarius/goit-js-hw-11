@@ -21,6 +21,7 @@ import {
   letMsgAllImagesLoaded,
   letMsgTotalFindImages,
 } from './js/message';
+
 //Destructuring object
 const { formEl, imagesContainerEl } = refs();
 
@@ -53,9 +54,9 @@ async function onFormSubmit(e) {
   try {
     await pixabayApiService.fetchImage();
     const { searchQuery, totalHits, hits } = pixabayApiService;
-    // if (!searchQuery) {
-    //   return letMsgEnterYouQuery();
-    // }
+    if (!searchQuery) {
+      return letMsgEnterYouQuery();
+    }
     // if (!totalHits) {
     //   return letMsgNoImagesByQuery();
     // }

@@ -83,7 +83,11 @@ async function infinityScroll(e) {
   const documentRect = document.documentElement.getBoundingClientRect();
   try {
     if (documentRect.bottom < document.documentElement.clientHeight + 300) {
-      if (!(pixabayApiService.hits.length < pixabayApiService.per_page)) {
+      if (
+        !(
+          pixabayApiService.page >= Math.floor(pixabayApiService.totalHits / 40)
+        )
+      ) {
         pixabayApiService.incrementPage();
         await pixabayApiService.fetchImage();
         appendImagesContainerEl(pixabayApiService.hits, imagesContainerEl);
